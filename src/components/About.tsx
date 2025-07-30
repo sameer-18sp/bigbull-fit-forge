@@ -1,8 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Heart, Target, Users, Zap, Shield } from "lucide-react";
+import { useState } from "react";
+import BookingModal from "@/components/modals/BookingModal";
 
 const About = () => {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
+  const handleBooking = (service: string) => {
+    setSelectedService(service);
+    setIsBookingModalOpen(true);
+  };
+
   const benefits = [
     {
       icon: Heart,
@@ -141,16 +151,32 @@ const About = () => {
               Join thousands who have already started their fitness journey with BigBull
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gold" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="gold" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => handleBooking("Free Trial")}
+              >
                 Start Free Trial
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black"
+                onClick={() => handleBooking("Schedule Tour")}
+              >
                 Schedule Tour
               </Button>
             </div>
           </div>
         </div>
       </div>
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        serviceType={selectedService}
+      />
     </section>
   );
 };

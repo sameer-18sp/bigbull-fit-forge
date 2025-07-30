@@ -3,8 +3,31 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Award, Clock, Users } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import BookingModal from "@/components/modals/BookingModal";
 
 const TrainersPage = () => {
+  const navigate = useNavigate();
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedTrainer, setSelectedTrainer] = useState("");
+  const [selectedService, setSelectedService] = useState("");
+
+  const handleBookSession = (trainerName: string) => {
+    setSelectedTrainer(trainerName);
+    setSelectedService("Personal Training");
+    setIsBookingModalOpen(true);
+  };
+
+  const handleBookNow = () => {
+    setSelectedService("Membership");
+    setIsBookingModalOpen(true);
+  };
+
+  const handleViewSchedule = () => {
+    navigate('/schedule');
+  };
+
   const trainers = [
     {
       name: "Mike Johnson",
@@ -93,7 +116,11 @@ const TrainersPage = () => {
                           </div>
                         </div>
                         
-                        <Button variant="hero" size="sm">
+                        <Button 
+                          variant="hero" 
+                          size="sm"
+                          onClick={() => handleBookSession(trainer.name)}
+                        >
                           Book Session
                         </Button>
                       </div>
@@ -111,10 +138,20 @@ const TrainersPage = () => {
                   Book a session with our expert trainers and begin your transformation today
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="gold" size="lg" className="text-lg px-8 py-6">
+                  <Button 
+                    variant="gold" 
+                    size="lg" 
+                    className="text-lg px-8 py-6"
+                    onClick={handleBookNow}
+                  >
                     Book Now
                   </Button>
-                  <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black"
+                    onClick={handleViewSchedule}
+                  >
                     View Schedule
                   </Button>
                 </div>
@@ -124,6 +161,13 @@ const TrainersPage = () => {
         </section>
       </main>
       <Footer />
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        serviceType={selectedService}
+        trainerName={selectedTrainer}
+      />
     </div>
   );
 };

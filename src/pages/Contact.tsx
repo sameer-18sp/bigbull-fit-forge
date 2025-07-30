@@ -6,8 +6,47 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, MessageSquare, Calendar } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import BookingModal from "@/components/modals/BookingModal";
 
 const ContactPage = () => {
+  const { toast } = useToast();
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    setTimeout(() => {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: ""
+      });
+    }, 1000);
+  };
+
+  const handleBooking = (service: string) => {
+    setSelectedService(service);
+    setIsBookingModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -36,31 +75,52 @@ const ContactPage = () => {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
                   
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="text-sm font-medium text-foreground mb-2 block">First Name</label>
-                        <Input placeholder="Enter your first name" />
+                        <Input 
+                          placeholder="Enter your first name" 
+                          value={formData.firstName}
+                          onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
+                          required
+                        />
                       </div>
                       <div>
                         <label className="text-sm font-medium text-foreground mb-2 block">Last Name</label>
-                        <Input placeholder="Enter your last name" />
+                        <Input 
+                          placeholder="Enter your last name" 
+                          value={formData.lastName}
+                          onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
+                          required
+                        />
                       </div>
                     </div>
                     
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">Email</label>
-                      <Input type="email" placeholder="Enter your email" />
+                      <Input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                        required
+                      />
                     </div>
                     
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">Phone</label>
-                      <Input type="tel" placeholder="Enter your phone number" />
+                      <Input 
+                        type="tel" 
+                        placeholder="Enter your phone number" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                      />
                     </div>
                     
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">Service Interest</label>
-                      <Select>
+                      <Select value={formData.service} onValueChange={(value) => setFormData(prev => ({ ...prev, service: value }))}>
                         <SelectTrigger>
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
@@ -79,10 +139,13 @@ const ContactPage = () => {
                       <Textarea 
                         placeholder="Tell us about your fitness goals or any questions you have..."
                         className="min-h-[120px]"
+                        value={formData.message}
+                        onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                        required
                       />
                     </div>
                     
-                    <Button variant="hero" size="lg" className="w-full">
+                    <Button type="submit" variant="hero" size="lg" className="w-full">
                       <MessageSquare className="h-5 w-5 mr-2" />
                       Send Message
                     </Button>
@@ -156,11 +219,21 @@ const ContactPage = () => {
                     </p>
                     
                     <div className="space-y-4">
-                      <Button variant="gold" size="lg" className="w-full">
+                      <Button 
+                        variant="gold" 
+                        size="lg" 
+                        className="w-full"
+                        onClick={() => handleBooking("Free Trial")}
+                      >
                         <Calendar className="h-5 w-5 mr-2" />
                         Book Free Trial
                       </Button>
-                      <Button variant="outline" size="lg" className="w-full border-white text-white hover:bg-white hover:text-black">
+                      <Button 
+                        variant="outline" 
+                        size="lg" 
+                        className="w-full border-white text-white hover:bg-white hover:text-black"
+                        onClick={() => handleBooking("Schedule Tour")}
+                      >
                         Schedule Tour
                       </Button>
                     </div>
@@ -185,6 +258,12 @@ const ContactPage = () => {
         </section>
       </main>
       <Footer />
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        serviceType={selectedService}
+      />
     </div>
   );
 };

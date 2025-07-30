@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
+import VideoModal from "@/components/modals/VideoModal";
+import BookingModal from "@/components/modals/BookingModal";
 import heroGym from "@/assets/hero-gym.jpg";
 import heroZumba from "@/assets/hero-zumba.jpg";
 import heroTrainer from "@/assets/hero-trainer.jpg";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   const slides = [
     {
@@ -45,6 +50,11 @@ const Hero = () => {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleBooking = (service: string) => {
+    setSelectedService(service);
+    setIsBookingModalOpen(true);
   };
 
   return (
@@ -86,10 +96,20 @@ const Hero = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="hero" size="lg" className="text-lg px-8 py-6">
+                  <Button 
+                    variant="hero" 
+                    size="lg" 
+                    className="text-lg px-8 py-6"
+                    onClick={() => handleBooking(slide.cta)}
+                  >
                     {slide.cta}
                   </Button>
-                  <Button variant="outline" size="lg" className="text-lg px-8 py-6 text-white border-white hover:bg-white hover:text-black">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="text-lg px-8 py-6 text-white border-white hover:bg-white hover:text-black"
+                    onClick={() => setIsVideoModalOpen(true)}
+                  >
                     <Play className="h-5 w-5 mr-2" />
                     Watch Video
                   </Button>
@@ -137,6 +157,18 @@ const Hero = () => {
           <div className="w-px h-8 bg-gradient-to-b from-transparent via-white to-transparent" />
         </div>
       </div>
+      
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        title="BigBull Fitness Experience"
+      />
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        serviceType={selectedService}
+      />
     </section>
   );
 };

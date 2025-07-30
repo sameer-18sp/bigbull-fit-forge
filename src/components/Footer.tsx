@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import BMIModal from "@/components/modals/BMIModal";
 import { 
   Dumbbell, 
   MapPin, 
@@ -13,12 +16,31 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [isBMIModalOpen, setIsBMIModalOpen] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      toast({
+        title: "Subscribed Successfully!",
+        description: "You'll receive our latest fitness tips and updates.",
+      });
+      setEmail("");
+    }
+  };
+
+  const handleBMIClick = () => {
+    setIsBMIModalOpen(true);
+  };
+
   const quickLinks = [
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Trainers", href: "/trainers" },
     { label: "Pricing", href: "/pricing" },
-    { label: "BMI Calculator", href: "/bmi" },
+    { label: "BMI Calculator", href: "#", onClick: handleBMIClick },
     { label: "Contact", href: "/contact" }
   ];
 
@@ -77,13 +99,23 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-bull-gold transition-colors duration-300 flex items-center group"
-                  >
-                    <div className="w-1 h-1 bg-bull-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {link.label}
-                  </a>
+                  {link.onClick ? (
+                    <button
+                      onClick={link.onClick}
+                      className="text-gray-300 hover:text-bull-gold transition-colors duration-300 flex items-center group"
+                    >
+                      <div className="w-1 h-1 bg-bull-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {link.label}
+                    </button>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-gray-300 hover:text-bull-gold transition-colors duration-300 flex items-center group"
+                    >
+                      <div className="w-1 h-1 bg-bull-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -153,16 +185,19 @@ const Footer = () => {
             <p className="text-white/90 mb-6">
               Subscribe to our newsletter for fitness tips, class schedules, and exclusive offers
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-bull-gold"
+                required
               />
-              <Button variant="gold" className="px-8">
+              <Button type="submit" variant="gold" className="px-8">
                 Subscribe
               </Button>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -186,6 +221,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      
+      <BMIModal
+        isOpen={isBMIModalOpen}
+        onClose={() => setIsBMIModalOpen(false)}
+      />
     </footer>
   );
 };

@@ -2,9 +2,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Dumbbell } from "lucide-react";
 import { cn } from "@/lib/utils";
+import BookingModal from "@/components/modals/BookingModal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
+  const handleJoinNow = () => {
+    setIsBookingModalOpen(true);
+    setIsOpen(false);
+  };
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -41,7 +48,11 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <Button variant="hero" size="sm">
+            <Button 
+              variant="hero" 
+              size="sm"
+              onClick={handleJoinNow}
+            >
               Join Now
             </Button>
           </div>
@@ -74,12 +85,22 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <Button variant="hero" className="w-full mt-4">
+            <Button 
+              variant="hero" 
+              className="w-full mt-4"
+              onClick={handleJoinNow}
+            >
               Join Now
             </Button>
           </div>
         </div>
       </div>
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        serviceType="Membership"
+      />
     </nav>
   );
 };

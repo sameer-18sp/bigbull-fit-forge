@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import BookingModal from "@/components/modals/BookingModal";
 import { 
   Dumbbell, 
   Heart, 
@@ -15,6 +18,19 @@ import {
 } from "lucide-react";
 
 const Services = () => {
+  const navigate = useNavigate();
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
+  const handleLearnMore = (serviceName: string) => {
+    navigate(`/services`);
+  };
+
+  const handleBooking = (service: string) => {
+    setSelectedService(service);
+    setIsBookingModalOpen(true);
+  };
+
   const services = [
     {
       icon: Dumbbell,
@@ -178,7 +194,11 @@ const Services = () => {
                   </div>
                 </div>
 
-                <Button variant="outline" className="w-full group-hover:bg-bull-red group-hover:text-white group-hover:border-bull-red transition-all duration-300">
+                <Button 
+                  variant="outline" 
+                  className="w-full group-hover:bg-bull-red group-hover:text-white group-hover:border-bull-red transition-all duration-300"
+                  onClick={() => handleLearnMore(service.title)}
+                >
                   Learn More
                 </Button>
               </CardContent>
@@ -195,10 +215,20 @@ const Services = () => {
                 Choose your program and begin your transformation today
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="gold" size="lg" className="text-lg px-8 py-6">
+                <Button 
+                  variant="gold" 
+                  size="lg" 
+                  className="text-lg px-8 py-6"
+                  onClick={() => navigate('/services')}
+                >
                   View All Programs
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black"
+                  onClick={() => handleBooking("Free Consultation")}
+                >
                   Book Free Consultation
                 </Button>
               </div>
@@ -208,6 +238,12 @@ const Services = () => {
           </div>
         </div>
       </div>
+      
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+        serviceType={selectedService}
+      />
     </section>
   );
 };
