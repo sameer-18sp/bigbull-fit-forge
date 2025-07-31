@@ -35,21 +35,21 @@ const Navbar = () => {
 
   return (
     <nav className={cn(
-      "fixed top-0 w-full z-50 transition-all duration-300",
+      "fixed top-0 w-full z-50 transition-all duration-500",
       isScrolled 
-        ? "bg-background/98 backdrop-blur-lg border-b border-border shadow-lg" 
-        : "bg-background/80 backdrop-blur-sm"
+        ? "bg-background/95 backdrop-blur-xl border-b border-purple-400/20 shadow-2xl shadow-purple-400/10" 
+        : "bg-gradient-to-r from-background/90 via-background/80 to-background/90 backdrop-blur-md"
     )}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-18">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-hero p-2 rounded-lg">
-              <Dumbbell className="h-6 w-6 text-white" />
+          <div className="flex items-center space-x-3 group">
+            <div className="bg-gradient-hero p-3 rounded-xl shadow-lg group-hover:scale-110 transition-all duration-300">
+              <Dumbbell className="h-7 w-7 text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-xl text-foreground">BigBull</h1>
-              <p className="text-xs text-muted-foreground">Fitness & Zumba</p>
+              <h1 className="font-bold text-2xl bg-gradient-hero bg-clip-text text-transparent">BigBull</h1>
+              <p className="text-sm text-muted-foreground font-medium">Fitness & Zumba</p>
             </div>
           </div>
 
@@ -59,14 +59,15 @@ const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="relative text-foreground hover:text-purple-400 transition-all duration-300 font-medium text-sm uppercase tracking-wide hover:scale-105 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-hero after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {item.label}
               </a>
             ))}
             <Button 
               variant="hero" 
-              size="sm"
+              size="lg"
+              className="bg-gradient-hero hover:shadow-glow hover:scale-105 transition-all duration-300 px-6 py-2 rounded-xl font-semibold"
               onClick={handleJoinNow}
             >
               Join Now
