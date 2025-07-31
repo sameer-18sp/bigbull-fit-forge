@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Dumbbell } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -7,6 +7,15 @@ import BookingModal from "@/components/modals/BookingModal";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleJoinNow = () => {
     setIsBookingModalOpen(true);
@@ -18,12 +27,19 @@ const Navbar = () => {
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Trainers", href: "/trainers" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "Packages", href: "/pricing" },
+    { label: "Programs", href: "/services" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className={cn(
+      "fixed top-0 w-full z-50 transition-all duration-300",
+      isScrolled 
+        ? "bg-background/98 backdrop-blur-lg border-b border-border shadow-lg" 
+        : "bg-background/80 backdrop-blur-sm"
+    )}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
