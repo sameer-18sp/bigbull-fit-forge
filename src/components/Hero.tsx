@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Star, Dumbbell } from "lucide-react";
 import VideoModal from "@/components/modals/VideoModal";
 import BookingModal from "@/components/modals/BookingModal";
 import heroGym from "@/assets/hero-gym.jpg";
 import heroZumba from "@/assets/hero-zumba.jpg";
 import heroTrainer from "@/assets/hero-trainer.jpg";
+import bullHero from "@/assets/bull-hero.jpg";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,25 +16,25 @@ const Hero = () => {
 
   const slides = [
     {
-      image: heroGym,
-      title: "Transform Your Body",
-      subtitle: "BIGBULL FITNESS GYM",
-      description: "Your lifelong sanctuary for health and fitness. Build strength, endurance, and confidence.",
-      cta: "Start Your Journey"
+      image: bullHero,
+      title: "UNLEASH THE BULL",
+      subtitle: "BIGBULL FITNESS POWER",
+      description: "Transform into an unstoppable force. Where ordinary humans become legendary bulls through pure strength and determination.",
+      cta: "🔥 START BULL TRANSFORMATION"
     },
     {
       image: heroZumba,
-      title: "Dance Your Way to Fitness",
-      subtitle: "ZUMBA CLASSES",
-      description: "Burn calories while having fun! High-energy Zumba sessions that boost your mood and health.",
-      cta: "Join Zumba"
+      title: "DANCE LIKE A BULL",
+      subtitle: "BULL ZUMBA CLASSES",
+      description: "High-energy bull rhythm sessions that build endurance while having explosive fun. Feel the power in every move.",
+      cta: "Join Bull Zumba"
     },
     {
       image: heroTrainer,
-      title: "Expert Personal Training",
-      subtitle: "PROFESSIONAL GUIDANCE",
-      description: "Work with certified trainers who will help you achieve your fitness goals safely and effectively.",
-      cta: "Book Session"
+      title: "BULL TRAINER ELITE",
+      subtitle: "PERSONAL BULL COACHING",
+      description: "Work with certified bull trainers who forge champions. Your personal path to becoming an unstoppable bull warrior.",
+      cta: "Book Bull Session"
     }
   ];
 
@@ -73,7 +74,7 @@ const Hero = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-gradient-power opacity-70" />
           </div>
 
           {/* Content */}
@@ -81,8 +82,8 @@ const Hero = () => {
             <div className="container mx-auto px-4">
               <div className="max-w-2xl">
                 <div className="flex items-center mb-4">
-                  <Star className="h-5 w-5 text-bull-gold mr-2" />
-                  <span className="text-bull-gold font-semibold tracking-wider text-sm">
+                  <Dumbbell className="h-5 w-5 text-primary mr-2" />
+                  <span className="text-primary font-bold tracking-wider text-sm">
                     {slide.subtitle}
                   </span>
                 </div>
@@ -91,7 +92,7 @@ const Hero = () => {
                   {slide.title}
                 </h1>
                 
-                <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                <p className="text-xl text-bull-silver/90 mb-8 leading-relaxed">
                   {slide.description}
                 </p>
                 
@@ -99,7 +100,7 @@ const Hero = () => {
                   <Button 
                     variant="hero" 
                     size="lg" 
-                    className="text-lg px-8 py-6"
+                    className="text-lg px-8 py-6 bg-gradient-bull hover:shadow-power font-bold"
                     onClick={() => handleBooking(slide.cta)}
                   >
                     {slide.cta}
@@ -107,11 +108,11 @@ const Hero = () => {
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="text-lg px-8 py-6 text-white border-white hover:bg-white hover:text-black"
+                    className="text-lg px-8 py-6 text-bull-silver border-bull-silver hover:bg-bull-silver hover:text-bull-dark font-bold"
                     onClick={() => setIsVideoModalOpen(true)}
                   >
                     <Play className="h-5 w-5 mr-2" />
-                    Watch Video // dynamic video source can be set here
+                    Watch Bull Power
                   </Button>
                 </div>
               </div>
@@ -123,14 +124,14 @@ const Hero = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-bull-red/30 hover:bg-bull-red/50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-power"
       >
         <ChevronLeft className="h-6 w-6" />
       </button>
       
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-bull-red/30 hover:bg-bull-red/50 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-power"
       >
         <ChevronRight className="h-6 w-6" />
       </button>
@@ -143,7 +144,7 @@ const Hero = () => {
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide 
-                ? "bg-bull-gold scale-125" 
+                ? "bg-primary scale-125 shadow-power" 
                 : "bg-white/50 hover:bg-white/75"
             }`}
           />
@@ -161,7 +162,7 @@ const Hero = () => {
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
-        title="BigBull Fitness Experience"
+        title="BigBull Fitness Bull Power Experience"
       />
       
       <BookingModal
