@@ -111,7 +111,7 @@ const Hero = () => {
                     onClick={() => setIsVideoModalOpen(true)}
                   >
                     <Play className="h-5 w-5 mr-2" />
-                    Watch Video
+                    Watch Video // dynamic video source can be set here
                   </Button>
                 </div>
               </div>

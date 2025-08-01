@@ -49,7 +49,7 @@ const Navbar = () => {
             </div>
             <div>
               <h1 className="font-bold text-2xl bg-gradient-hero bg-clip-text text-transparent">BigBull</h1>
-              <p className="text-sm text-muted-foreground font-medium">Fitness & Zumba</p>
+              <p className="text-sm text-muted-foreground font-medium">Fitness Gym & Zumba</p>
             </div>
           </div>
 

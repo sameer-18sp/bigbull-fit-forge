@@ -16,25 +16,25 @@ const HomeTrainers = () => {
 
   const trainers = [
     {
-      name: "MANOJ",
+      name: "Ranjeet Lama",
       specialty: "Gym Trainer",
-      image: "https://images.unsplash.com/photo-1583468982228-19f19164aee2?w=400&h=400&fit=crop&crop=face",
+      image: "./src/assets/trainer1.jpg",
       rating: 4.9,
       experience: "8+ Years",
       certifications: ["NASM-CPT", "Strength Training"]
     },
     {
-      name: "PRASHANT", 
+      name: "Manoj Pandey", 
       specialty: "Aerobics Instructor",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=face",
+      image: "./src/assets/trainer2.jpg",
       rating: 4.8,
       experience: "6+ Years", 
       certifications: ["ACE Certified", "Aerobics Specialist"]
     },
     {
-      name: "AZAR",
+      name: "Deepu Bhatta",
       specialty: "Weights Trainer", 
-      image: "https://images.unsplash.com/photo-1594736797933-d0d4346c32d1?w=400&h=400&fit=crop&crop=face",
+      image: "./src/assets/trainer3.jpg",
       rating: 4.9,
       experience: "10+ Years",
       certifications: ["CSCS", "Olympic Lifting"]

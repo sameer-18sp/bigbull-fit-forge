@@ -54,8 +54,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61575097259238", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/bigbullfitnessgymandzumba?igsh=MXQ2YW82ZW9qbGRzOQ==", label: "Instagram" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Youtube, href: "#", label: "YouTube" }
   ];
@@ -73,7 +73,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-bold">BigBull</h3>
-                <p className="text-bull-gold">Fitness & Zumba</p>
+                <p className="text-bull-gold">Fitness Gym & Zumba</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -147,8 +147,8 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-bull-gold mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">
-                    123 Fitness Street<br />
-                    Gym District, City 12345
+                    Lotus Galli, Attariya<br />
+                    Kailali, Sudurpaschim, Nepal
                   </p>
                 </div>
               </div>
@@ -156,7 +156,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-bull-gold flex-shrink-0" />
                 <a href="tel:+1234567890" className="text-gray-300 hover:text-bull-gold transition-colors duration-300">
-                  +1 (234) 567-8900
+                  +977 9867793743
                 </a>
               </div>
               

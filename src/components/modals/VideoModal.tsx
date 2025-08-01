@@ -7,7 +7,7 @@ interface VideoModalProps {
   title?: string;
 }
 
-const VideoModal = ({ isOpen, onClose, title = "Fitness Video" }: VideoModalProps) => {
+const VideoModal = ({ isOpen, onClose, title = "Fitness Video"}: VideoModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl w-full p-0 bg-black">
@@ -22,7 +22,7 @@ const VideoModal = ({ isOpen, onClose, title = "Fitness Video" }: VideoModalProp
         <div className="relative w-full h-0 pb-[56.25%]">
           <iframe
             className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            src="./src/assets/videos/Video1.mp4" 
             title={title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -30,15 +30,15 @@ const TrainersPage = () => {
 
   const trainers = [
     {
-      name: "Mike Johnson",
+      name: "Ranjeet Lama",
       specialty: "Strength Training",
       experience: "8 years",
       certifications: ["NASM-CPT", "CSCS"],
-      image: "/placeholder.svg",
+      image: "./src/assets/trainer1.jpg",
       bio: "Expert in powerlifting and strength conditioning with proven results."
     },
     {
-      name: "Sarah Martinez",
+      name: "Manisha Bhattarai",
       specialty: "Zumba Instructor",
       experience: "6 years",
       certifications: ["Zumba Basic", "Zumba Gold"],
@@ -46,19 +46,19 @@ const TrainersPage = () => {
       bio: "High-energy Zumba instructor who makes fitness fun and accessible."
     },
     {
-      name: "David Chen",
+      name: "Manoj Pandey",
       specialty: "Personal Training",
       experience: "10 years",
       certifications: ["ACE-CPT", "TRX"],
-      image: "/placeholder.svg",
+      image: "./src/assets/trainer2.jpg",
       bio: "Specializes in weight loss and functional movement patterns."
     },
     {
-      name: "Lisa Rodriguez",
+      name: "Deepu Bhatta",
       specialty: "Cardio & HIIT",
       experience: "5 years",
       certifications: ["ACSM-CPT", "HIIT"],
-      image: "/placeholder.svg",
+      image: "./src/assets/trainer3.jpg",
       bio: "Creates challenging cardio workouts that burn calories and build endurance."
     }
   ];

@@ -5,51 +5,75 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Ravi Kumar",
-      location: "Bengaluru",
+      name: "Sameer Pandeya",
+      location: "Dhangadhi",
       rating: 5,
       text: "Joining BigBull Fitness has been a game-changer for me. The expert trainers and top-notch facilities helped me achieve my fitness goals faster than I ever imagined. The supportive environment makes every workout enjoyable and effective!",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+      image: "./src/assets/client1.jpg"
     },
     {
       id: 2,
-      name: "Priya Sharma",
-      location: "Marathahalli",
+      name: "Bipin Bhandari",
+      location: "Attariya",
       rating: 5,
       text: "I've tried many gyms, but BigBull Fitness stands out with its personalized training programs and outstanding Zumba classes. The results speak for themselves – I've never felt better or more confident in my body!",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=150&q=80"
+      image: "./src/assets/client2.jpg"
     },
     {
       id: 3,
-      name: "Arjun Malhotra",
-      location: "Kundalahalli",
+      name: "Rohit Pandeya",
+      location: "Dhangadhi",
       rating: 5,
       text: "BigBull Fitness offers the best gym experience in Bangalore. From their cutting-edge equipment to their dedicated trainers, every aspect of the gym is designed to help you succeed. I highly recommend it to anyone serious about fitness.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80"
+      image: "./src/assets/client3.jpg"
     },
     {
       id: 4,
-      name: "Anita Reddy",
-      location: "Nellore",
+      name: "Nilam",
+      location: "Gulariya",
       rating: 5,
       text: "The community and resources at BigBull Fitness are incredible. I've lost weight, gained muscle, and improved my overall health thanks to their holistic approach to fitness and wellness. It's truly a place where transformation happens.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80"
+      image: "./src/assets/client4.jpg"
     },
     {
       id: 5,
-      name: "Vikram Singh",
-      location: "Electronic City",
+      name: "Pankaj",
+      location: "Malakheti",
       rating: 5,
       text: "The Zumba classes at BigBull are absolutely amazing! The instructors are energetic and motivating. I've been coming here for 8 months and have seen incredible improvements in my stamina and overall fitness.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+      image: "./src/assets/client5.jpg"
     },
     {
       id: 6,
-      name: "Meera Patel",
-      location: "Whitefield",
+      name: "Jenisha Pant",
+      location: "Attariya",
       rating: 5,
       text: "BigBull Fitness has the perfect balance of strength training and fun activities like Zumba. The trainers are knowledgeable and create personalized workout plans. I've achieved my weight loss goals and gained so much confidence!",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
+      image: "./src/assets/client6.jpg"
+    },
+    {
+      id: 7,
+      name: "Prerana",
+      location: "Geta",
+      rating: 5,
+      text: "The community at BigBull Fitness is so supportive. I've made friends while getting fit, and the trainers genuinely care about your progress. It's more than just a gym; it's a lifestyle change.",
+      image: "./src/assets/client7.jpg"
+    },
+    {
+      id: 8,
+      name: "Chetan",
+      location: "Godawari",
+      rating: 5,
+      text: "BigBull Fitness has transformed my approach to health and fitness. The variety of classes, from strength training to Zumba, keeps me engaged and motivated. I've never felt better in my life!",
+      image: "./src/assets/client8.jpg"
+    },
+    {
+      id: 9,
+      name: "Siddharth Bhatt",
+      location: "Attariya",
+      rating: 5,
+      text: "I love the atmosphere at BigBull Fitness. The trainers are always there to help and push you to do your best. I've seen amazing results in just a few months, and I can't wait to see where my fitness journey takes me next!",
+      image: "./src/assets/client9.jpg"
     }
   ];
 

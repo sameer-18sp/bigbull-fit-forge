@@ -62,7 +62,7 @@ const ContactPage = () => {
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Contact
-                <span className="text-transparent bg-clip-text bg-gradient-hero"> BigBull Fitness</span>
+                <span className="text-transparent bg-clip-text bg-gradient-hero"> BigBull Fitness Gym and Zumba</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Ready to start your fitness journey? Get in touch with us today to book a session or ask any questions.
@@ -168,8 +168,8 @@ const ContactPage = () => {
                         <div>
                           <h3 className="font-semibold text-foreground mb-1">Address</h3>
                           <p className="text-muted-foreground">
-                            123 Fitness Street<br />
-                            Gym District, City 12345
+                            Lotus Galli, Attariya<br />
+                            Kailali, Sudurpaschim, Nepal
                           </p>
                         </div>
                       </div>
@@ -180,7 +180,7 @@ const ContactPage = () => {
                         </div>
                         <div>
                           <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                          <p className="text-muted-foreground">+1 (234) 567-8900</p>
+                          <p className="text-muted-foreground">+977 9867793743</p>
                         </div>
                       </div>
                       
