@@ -18,9 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-hero text-white font-bold shadow-power hover:shadow-glow transform hover:scale-105 transition-all duration-300",
-        power: "bg-bull-red text-white font-semibold border border-bull-gold hover:bg-bull-gold hover:text-bull-dark shadow-lg hover:shadow-power",
-        gold: "bg-bull-gold text-bull-dark font-semibold hover:bg-bull-gold/90 shadow-md transform hover:scale-105",
+        hero: "bg-gradient-bull text-white font-bold shadow-power hover:shadow-glow transform hover:scale-105 transition-all duration-300",
+        power: "bg-primary text-white font-semibold border border-bull-silver hover:bg-bull-silver hover:text-bull-dark shadow-lg hover:shadow-power",
+        steel: "bg-bull-silver text-bull-dark font-semibold hover:bg-bull-silver/90 shadow-md transform hover:scale-105",
+        gold: "bg-bull-silver text-bull-dark font-semibold hover:bg-bull-silver/90 shadow-md transform hover:scale-105",
       },
       size: {
         default: "h-10 px-4 py-2",
