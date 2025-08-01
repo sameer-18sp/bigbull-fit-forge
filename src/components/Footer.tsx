@@ -147,31 +147,31 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-bull-gold mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">
-                    Lotus Galli, Attariya<br />
-                    Kailali, Sudurpaschim, Nepal
+                    Lotus Galli, Opposite of Samata School,<br />
+                    Attariya, Kailali, Godawari Municipality, Ward-02, Sudurpaschim, Nepal
                   </p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-bull-gold flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-bull-gold transition-colors duration-300">
-                  +977 9867793743
+                <a href="tel:+9779858461520" className="text-gray-300 hover:text-bull-gold transition-colors duration-300">
+                  +977-9858461520
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-bull-gold flex-shrink-0" />
-                <a href="mailto:info@bigbullfitness.com" className="text-gray-300 hover:text-bull-gold transition-colors duration-300">
-                  info@bigbullfitness.com
+                <a href="mailto:bigbullfitnessnzumba@gmail.com" className="text-gray-300 hover:text-bull-gold transition-colors duration-300">
+                  bigbullfitnessnzumba@gmail.com
                 </a>
               </div>
               
               <div className="flex items-start space-x-3">
                 <Clock className="h-5 w-5 text-bull-gold mt-1 flex-shrink-0" />
                 <div className="text-gray-300">
-                  <p>Mon - Fri: 5:00 AM - 11:00 PM</p>
-                  <p>Sat - Sun: 6:00 AM - 10:00 PM</p>
+                  <p>Morning: 4:30 AM - 10:00 AM</p>
+                  <p>Evening: 4:30 PM - 9:30 PM</p>
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 mb-4 md:mb-0">
-            <p>&copy; 2024 BigBull Fitness Gym & Zumba. All rights reserved.</p>
+            <p>&copy; 2025 BigBull Fitness Gym & Zumba. All rights reserved.</p>
           </div>
           <div className="flex space-x-6">
             <a href="/privacy" className="text-gray-400 hover:text-bull-gold transition-colors duration-300">

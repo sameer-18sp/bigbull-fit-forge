@@ -9,8 +9,8 @@ const PricingPage = () => {
     {
       name: "Basic",
       duration: "3 Months",
-      price: "₹2,999",
-      originalPrice: "₹3,999",
+      price: "₹5,000",
+      originalPrice: "₹9,000",
       popular: false,
       features: [
         "Gym access during off-peak hours",
@@ -23,8 +23,8 @@ const PricingPage = () => {
     {
       name: "Premium", 
       duration: "6 Months",
-      price: "₹4,999",
-      originalPrice: "₹6,999",
+      price: "₹9,000",
+      originalPrice: "₹12,000",
       popular: true,
       features: [
         "24/7 gym access",
@@ -39,8 +39,8 @@ const PricingPage = () => {
     {
       name: "Elite",
       duration: "12 Months", 
-      price: "₹7,999",
-      originalPrice: "₹12,999",
+      price: "₹17,000",
+      originalPrice: "₹24,000",
       popular: false,
       features: [
         "Everything in Premium",
@@ -50,6 +50,19 @@ const PricingPage = () => {
         "Guest pass (2 per month)",
         "Priority booking for classes",
         "Massage therapy sessions"
+      ]
+    },
+    {
+      name: "Ultra-Premium",
+      duration: "Lifetime",
+      price: "₹50,000",
+      popular: true,
+      features: [
+        "Lifetime access to all facilities",
+        "Free nutrition and supplement guidance",
+        "Family nutrition workshops",
+        "Monthly family fitness challenges",
+        "Free family fitness assessment"
       ]
     }
   ];

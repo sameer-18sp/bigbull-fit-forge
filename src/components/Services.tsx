@@ -113,7 +113,7 @@ const Services = () => {
   ];
 
   const stats = [
-    { icon: Trophy, number: "500+", label: "Happy Members" },
+    { icon: Trophy, number: "350+", label: "Happy Members" },
     { icon: Flame, number: "10k+", label: "Calories Burned Daily" },
     { icon: Timer, number: "50+", label: "Classes Per Week" },
     { icon: Zap, number: "5+", label: "Years Experience" }
