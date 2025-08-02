@@ -124,19 +124,23 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h4 className="text-xl font-bold mb-6 text-bull-gold">Our Services</h4>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href={service.href}
-                    className="text-gray-300 hover:text-bull-gold transition-colors duration-300 flex items-center group"
-                  >
-                    <div className="w-1 h-1 bg-bull-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {service.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-3">
+              <a href="/services" className="text-gray-300 hover:text-bull-gold transition-colors duration-300 block">
+                All Services
+              </a>
+              <a href="/trainers" className="text-gray-300 hover:text-bull-gold transition-colors duration-300 block">
+                Our Trainers
+              </a>
+              <a href="/progress-tracker" className="text-gray-300 hover:text-bull-gold transition-colors duration-300 block">
+                Progress Tracker
+              </a>
+              <a href="/pricing" className="text-gray-300 hover:text-bull-gold transition-colors duration-300 block">
+                Pricing Plans
+              </a>
+              <a href="/contact" className="text-gray-300 hover:text-bull-gold transition-colors duration-300 block">
+                Contact Us
+              </a>
+            </div>
           </div>
 
           {/* Contact Info */}

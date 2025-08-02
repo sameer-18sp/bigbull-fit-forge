@@ -107,20 +107,20 @@ const Hero = () => {
                   </span>
                 </div>
                 
-                <div className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight min-h-[160px] md:min-h-[200px]">
-                  <div className={`transition-all duration-1000 transform ${
+                <div className="text-4xl md:text-6xl lg:text-7xl font-orbitron font-black mb-6 leading-tight min-h-[160px] md:min-h-[200px]">
+                  <div className={`transition-all duration-1000 transform bg-gradient-to-r from-bull-gold via-yellow-400 to-bull-gold bg-clip-text text-transparent drop-shadow-2xl ${
                     animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}>
                     {slide.titleParts[0]}
                   </div>
-                  <div className={`transition-all duration-1000 transform ${
+                  <div className={`transition-all duration-1000 transform bg-gradient-to-r from-bull-silver via-white to-bull-silver bg-clip-text text-transparent drop-shadow-2xl ${
                     animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}>
                     {slide.titleParts[1]}
                   </div>
                 </div>
                 
-                <p className="text-xl text-bull-silver/90 mb-8 leading-relaxed">
+                <p className="text-xl md:text-2xl text-bull-silver/90 mb-8 leading-relaxed font-rajdhani font-medium tracking-wide backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-bull-gold/20">
                   {slide.description}
                 </p>
                 
@@ -138,6 +138,7 @@ const Hero = () => {
                     size="lg" 
                     className="text-lg px-8 py-6 text-bull-silver border-bull-silver hover:bg-bull-silver hover:text-bull-dark font-bold"
                     onClick={() => setIsVideoModalOpen(true)}
+                    data-video={currentSlide}
                   >
                     <Play className="h-5 w-5 mr-2" />
                     Watch Bull Power
@@ -191,6 +192,7 @@ const Hero = () => {
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
         title="BigBull Fitness Bull Power Experience"
+        videoIndex={currentSlide}
       />
       
       <BookingModal

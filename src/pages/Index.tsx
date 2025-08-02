@@ -20,7 +20,6 @@ const Index = () => {
         <Services />
         <WorkoutPlans />
         <HomeTrainers />
-        <ProgressTracker />
         <NutritionCalculator />
         <FeeStructure />
         <Testimonials />
