@@ -13,25 +13,26 @@ const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("");
+  const [animatedText, setAnimatedText] = useState({ first: false, second: false });
 
   const slides = [
     {
       image: bullHero,
-      title: "UNLEASH THE BULL",
+      titleParts: ["TRAIN LIKE A BULL", "WALK LIKE A BEAST"],
       subtitle: "BIGBULL FITNESS POWER",
       description: "Transform into an unstoppable force. Where ordinary humans become legendary bulls through pure strength and determination.",
       cta: "🔥 START BULL TRANSFORMATION"
     },
     {
       image: heroZumba,
-      title: "DANCE LIKE A BULL",
+      titleParts: ["DANCE LIKE A BULL", "FEEL THE RHYTHM"],
       subtitle: "BULL ZUMBA CLASSES",
       description: "High-energy bull rhythm sessions that build endurance while having explosive fun. Feel the power in every move.",
       cta: "Join Bull Zumba"
     },
     {
       image: heroTrainer,
-      title: "BULL TRAINER ELITE",
+      titleParts: ["TRAIN LIKE ELITE", "BECOME THE CHAMPION"],
       subtitle: "PERSONAL BULL COACHING",
       description: "Work with certified bull trainers who forge champions. Your personal path to becoming an unstoppable bull warrior.",
       cta: "Book Bull Session"
@@ -44,6 +45,24 @@ const Hero = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, [slides.length]);
+
+  // Reset and start text animation when slide changes
+  useEffect(() => {
+    setAnimatedText({ first: false, second: false });
+    
+    const firstTimer = setTimeout(() => {
+      setAnimatedText(prev => ({ ...prev, first: true }));
+    }, 500);
+
+    const secondTimer = setTimeout(() => {
+      setAnimatedText(prev => ({ ...prev, second: true }));
+    }, 1500);
+
+    return () => {
+      clearTimeout(firstTimer);
+      clearTimeout(secondTimer);
+    };
+  }, [currentSlide]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -88,9 +107,18 @@ const Hero = () => {
                   </span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                  {slide.title}
-                </h1>
+                <div className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight min-h-[160px] md:min-h-[200px]">
+                  <div className={`transition-all duration-1000 transform ${
+                    animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}>
+                    {slide.titleParts[0]}
+                  </div>
+                  <div className={`transition-all duration-1000 transform ${
+                    animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}>
+                    {slide.titleParts[1]}
+                  </div>
+                </div>
                 
                 <p className="text-xl text-bull-silver/90 mb-8 leading-relaxed">
                   {slide.description}
