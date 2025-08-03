@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Play, Star, Dumbbell } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
 import VideoModal from "@/components/modals/VideoModal";
 import BookingModal from "@/components/modals/BookingModal";
 import heroGym from "@/assets/hero-gym.jpg";
 import heroZumba from "@/assets/hero-zumba.jpg";
 import heroTrainer from "@/assets/hero-trainer.jpg";
 import bullHero from "@/assets/bull-hero.jpg";
+import bullCircle from "@/assets/bull-circle.jpg";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -101,15 +102,22 @@ const Hero = () => {
             <div className="container mx-auto px-4 lg:px-8">
               <div className="max-w-4xl">
                 
+                <div className="flex items-center mb-6">
+                  <img src={bullCircle} alt="BigBull Logo" className="h-8 w-8 mr-3 rounded-full" />
+                  <span className="text-bull-red font-bold tracking-[0.2em] text-lg uppercase">
+                    {slide.subtitle}
+                  </span>
+                </div>
+                
                 <div className="mb-8">
-                  <div className={`text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-[0.9] tracking-tight ${
+                  <div className={`text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-[0.9] tracking-tight ${
                     animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   } transition-all duration-1000 transform`}>
                     <div className="text-white drop-shadow-2xl font-sans">
                       {slide.titleParts[0]}
                     </div>
                   </div>
-                  <div className={`text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight ${
+                  <div className={`text-3xl md:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight ${
                     animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   } transition-all duration-1000 transform delay-300`}>
                     <div className="text-bull-red drop-shadow-2xl font-sans">
@@ -118,13 +126,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <div className="mb-4">
-                  <span className="text-bull-red font-bold tracking-[0.2em] text-lg uppercase">
-                    {slide.subtitle}
-                  </span>
-                </div>
-                
-                <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-medium max-w-2xl">
+                <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-medium max-w-2xl">
                   {slide.description}
                 </p>
                 
