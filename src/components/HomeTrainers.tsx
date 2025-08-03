@@ -90,7 +90,7 @@ const HomeTrainers = () => {
               className="relative group cursor-pointer"
               onClick={() => handleTrainerClick(trainer)}
             >
-              <div className="w-32 h-32 mx-auto mb-4 relative overflow-hidden rounded-full border-4 border-bull-gold/30 group-hover:border-bull-gold transition-all duration-300 transform group-hover:scale-105">
+              <div className="w-48 h-48 mx-auto mb-6 relative overflow-hidden rounded-full border-4 border-bull-gold/30 group-hover:border-bull-gold transition-all duration-300 transform group-hover:scale-105">
                 <img
                   src={trainer.image}
                   alt={trainer.name}
