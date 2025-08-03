@@ -19,23 +19,23 @@ const Hero = () => {
     {
       image: bullHero,
       titleParts: ["TRAIN LIKE A BULL", "WALK LIKE A BEAST"],
-      subtitle: "BIGBULL FITNESS POWER",
-      description: "Transform into an unstoppable force. Where ordinary humans become legendary bulls through pure strength and determination.",
-      cta: "🔥 START BULL TRANSFORMATION"
+      subtitle: "THE BULL TRANSFORMATION",
+      description: "Unleash your inner beast with our intensive training programs. Build unstoppable strength, power, and determination.",
+      cta: "START YOUR JOURNEY"
     },
     {
       image: heroZumba,
       titleParts: ["DANCE LIKE A BULL", "FEEL THE RHYTHM"],
       subtitle: "BULL ZUMBA CLASSES",
-      description: "High-energy bull rhythm sessions that build endurance while having explosive fun. Feel the power in every move.",
-      cta: "Join Bull Zumba"
+      description: "High-energy dance workouts that build endurance while having explosive fun. Feel the power in every move.",
+      cta: "JOIN BULL ZUMBA"
     },
     {
       image: heroTrainer,
       titleParts: ["TRAIN LIKE ELITE", "BECOME THE CHAMPION"],
       subtitle: "PERSONAL BULL COACHING",
-      description: "Work with certified bull trainers who forge champions. Your personal path to becoming an unstoppable bull warrior.",
-      cta: "Book Bull Session"
+      description: "Work with certified trainers who forge champions. Your personal path to becoming an unstoppable warrior.",
+      cta: "BOOK SESSION"
     }
   ];
 
@@ -98,37 +98,40 @@ const Hero = () => {
 
           {/* Content */}
           <div className="relative z-10 h-full flex items-center">
-            <div className="container mx-auto px-4">
-              <div className="max-w-2xl">
-                <div className="flex items-center mb-4">
-                  <Dumbbell className="h-5 w-5 text-primary mr-2" />
-                  <span className="text-primary font-bold tracking-wider text-sm">
+            <div className="container mx-auto px-4 lg:px-8">
+              <div className="max-w-4xl">
+                
+                <div className="mb-8">
+                  <div className={`text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-[0.9] tracking-tight ${
+                    animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  } transition-all duration-1000 transform`}>
+                    <div className="text-white drop-shadow-2xl font-sans">
+                      {slide.titleParts[0]}
+                    </div>
+                  </div>
+                  <div className={`text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight ${
+                    animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  } transition-all duration-1000 transform delay-300`}>
+                    <div className="text-bull-red drop-shadow-2xl font-sans">
+                      {slide.titleParts[1]}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <span className="text-bull-red font-bold tracking-[0.2em] text-lg uppercase">
                     {slide.subtitle}
                   </span>
                 </div>
                 
-                <div className="text-4xl md:text-6xl lg:text-7xl font-orbitron font-black mb-6 leading-tight min-h-[160px] md:min-h-[200px]">
-                  <div className={`transition-all duration-1000 transform bg-gradient-to-r from-bull-gold via-yellow-400 to-bull-gold bg-clip-text text-transparent drop-shadow-2xl ${
-                    animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}>
-                    {slide.titleParts[0]}
-                  </div>
-                  <div className={`transition-all duration-1000 transform bg-gradient-to-r from-bull-silver via-white to-bull-silver bg-clip-text text-transparent drop-shadow-2xl ${
-                    animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}>
-                    {slide.titleParts[1]}
-                  </div>
-                </div>
-                
-                <p className="text-xl md:text-2xl text-bull-silver/90 mb-8 leading-relaxed font-rajdhani font-medium tracking-wide backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-bull-gold/20">
+                <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-medium max-w-2xl">
                   {slide.description}
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-6">
                   <Button 
-                    variant="hero" 
                     size="lg" 
-                    className="text-lg px-8 py-6 bg-gradient-bull hover:shadow-power font-bold"
+                    className="bg-bull-red hover:bg-bull-red/90 text-white font-bold text-lg px-10 py-4 rounded-sm transition-all duration-300 hover:scale-105 shadow-xl"
                     onClick={() => handleBooking(slide.cta)}
                   >
                     {slide.cta}
@@ -136,12 +139,12 @@ const Hero = () => {
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="text-lg px-8 py-6 text-bull-silver border-bull-silver hover:bg-bull-silver hover:text-bull-dark font-bold"
+                    className="border-2 border-white text-white hover:bg-white hover:text-black font-bold text-lg px-10 py-4 rounded-sm transition-all duration-300"
                     onClick={() => setIsVideoModalOpen(true)}
                     data-video={currentSlide}
                   >
                     <Play className="h-5 w-5 mr-2" />
-                    Watch Bull Power
+                    WATCH VIDEO
                   </Button>
                 </div>
               </div>
