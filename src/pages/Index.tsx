@@ -9,32 +9,23 @@ import Testimonials from "@/components/Testimonials";
 import WorkoutPlans from "@/components/WorkoutPlans";
 import NutritionCalculator from "@/components/NutritionCalculator";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
-import ParallaxSection from "@/components/ParallaxSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main>
         <Hero />
-        <ParallaxSection speed={0.3}>
-          <About />
-        </ParallaxSection>
+        <About />
         <Services />
         <WorkoutPlans />
-        <ParallaxSection speed={0.2}>
-          <HomeTrainers />
-        </ParallaxSection>
+        <HomeTrainers />
         <Gallery />
         <NutritionCalculator />
-        <ParallaxSection speed={0.1}>
-          <FeeStructure />
-        </ParallaxSection>
+        <FeeStructure />
         <Testimonials />
       </main>
       <Footer />
-      <ScrollToTop />
     </div>
   );
 };

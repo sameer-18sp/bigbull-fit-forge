@@ -111,22 +111,16 @@ const Hero = () => {
                 
                 <div className="mb-8">
                   <div className={`text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-[0.9] tracking-tight ${
-                    animatedText.first ? 'opacity-100 translate-y-0 animate-text-reveal' : 'opacity-0 translate-y-16'
+                    animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   } transition-all duration-1000 transform`}>
-                    <div className="text-white drop-shadow-2xl font-sans relative">
-                      <div className="absolute inset-0 bg-gradient-premium bg-clip-text text-transparent opacity-0 hover:opacity-100 transition-opacity duration-500">
-                        {slide.titleParts[0]}
-                      </div>
+                    <div className="text-white drop-shadow-2xl font-sans">
                       {slide.titleParts[0]}
                     </div>
                   </div>
                   <div className={`text-3xl md:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight ${
-                    animatedText.second ? 'opacity-100 translate-y-0 animate-text-reveal' : 'opacity-0 translate-y-16'
-                  } transition-all duration-1000 transform delay-500`}>
-                    <div className="text-bull-gold drop-shadow-2xl font-sans relative animate-bull-power">
-                      <div className="absolute inset-0 bg-gradient-bull bg-clip-text text-transparent animate-shimmer">
-                        {slide.titleParts[1]}
-                      </div>
+                    animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  } transition-all duration-1000 transform delay-300`}>
+                    <div className="text-bull-red drop-shadow-2xl font-sans">
                       {slide.titleParts[1]}
                     </div>
                   </div>

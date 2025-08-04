@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import bullCircle from "@/assets/bull-circle.jpg";
+import { Menu, X, Dumbbell } from "lucide-react";
 import { cn } from "@/lib/utils";
 import BookingModal from "@/components/modals/BookingModal";
 
@@ -44,18 +43,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-18">
           {/* Logo */}
-          <div className="flex items-center space-x-3 group cursor-pointer">
-            <div className="relative overflow-hidden rounded-full group-hover:scale-110 transition-all duration-500 group-hover:shadow-premium">
-              <img 
-                src={bullCircle} 
-                alt="BigBull Logo" 
-                className="h-12 w-12 rounded-full object-cover group-hover:brightness-110 transition-all duration-300" 
-              />
-              <div className="absolute inset-0 bg-gradient-premium opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
+          <div className="flex items-center space-x-3 group">
+            <div className="bg-gradient-hero p-3 rounded-xl shadow-lg group-hover:scale-110 transition-all duration-300">
+              <Dumbbell className="h-7 w-7 text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-2xl bg-gradient-hero bg-clip-text text-transparent group-hover:animate-shimmer">BigBull</h1>
-              <p className="text-sm text-muted-foreground font-medium group-hover:text-bull-gold transition-colors duration-300">Fitness Gym & Zumba</p>
+              <h1 className="font-bold text-2xl bg-gradient-hero bg-clip-text text-transparent">BigBull</h1>
+              <p className="text-sm text-muted-foreground font-medium">Fitness Gym & Zumba</p>
             </div>
           </div>
 

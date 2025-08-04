@@ -19,21 +19,21 @@ Red Bull dominance with black/silver accents. All colors MUST be HSL.
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
 
-    /* Brand colors - Enhanced Bull Power Theme */
-    --primary: 25 85% 45%; /* Bronze-tinted Red */
+    /* Brand colors - Bull Power Theme */
+    --primary: 0 85% 55%; /* Bull Red */
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 25 90% 55%;
+    --primary-glow: 0 85% 65%;
 
-    /* Secondary - Enhanced Bronze/Gold accents */
-    --secondary: 30 15% 15%;
-    --secondary-foreground: 30 20% 95%;
+    /* Secondary - Silver/Steel accents */
+    --secondary: 0 0% 75%;
+    --secondary-foreground: 0 0% 8%;
 
-    /* Enhanced Bull Power Theme */
-    --bull-red: 25 85% 45%; /* Bronze Red */
-    --bull-gold: 35 70% 55%; /* Rich Gold */
-    --bull-dark: 30 20% 8%; /* Warm Dark */
-    --bull-gray: 30 10% 25%; /* Warm Gray */
-    --bull-bronze: 30 60% 40%; /* Deep Bronze */
+    /* Bull Power Theme */
+    --bull-red: 0 85% 55%; /* Dominant Red */
+    --bull-silver: 0 0% 75%; /* Steel Silver */
+    --bull-dark: 0 0% 8%; /* Deep Black */
+    --bull-gray: 0 0% 25%; /* Iron Gray */
+    --bull-blood: 0 75% 45%; /* Dark Red */
 
     /* Muted tones */
     --muted: 0 0% 20%;
@@ -49,25 +49,21 @@ Red Bull dominance with black/silver accents. All colors MUST be HSL.
     --input: 0 0% 20%;
     --ring: 0 85% 55%;
 
-    /* Enhanced Bull Power Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--bull-gold)), hsl(var(--primary-glow)));
-    --gradient-power: linear-gradient(135deg, rgba(139, 69, 19, 0.95), rgba(160, 82, 45, 0.85), rgba(205, 133, 63, 0.75));
-    --gradient-bull: linear-gradient(45deg, hsl(var(--bull-red)), hsl(var(--bull-bronze)), hsl(var(--bull-gold)));
-    --gradient-steel: linear-gradient(135deg, hsl(var(--bull-gold)), hsl(var(--bull-bronze)));
+    /* Bull Power Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 85% 55%), hsl(0 75% 45%));
+    --gradient-power: linear-gradient(45deg, hsl(var(--bull-dark)), hsl(var(--bull-red)));
+    --gradient-bull: linear-gradient(135deg, hsl(var(--bull-red)), hsl(var(--bull-blood)));
+    --gradient-steel: linear-gradient(135deg, hsl(var(--bull-silver)), hsl(var(--bull-gray)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)));
-    --gradient-premium: linear-gradient(135deg, hsl(var(--bull-gold)), hsl(var(--primary)), hsl(var(--bull-bronze)));
 
-    /* Enhanced Bull Shadows */
-    --shadow-glow: 0 0 50px hsl(var(--primary-glow) / 0.6), 0 0 100px hsl(var(--bull-gold) / 0.3);
-    --shadow-power: 0 15px 40px -15px hsl(var(--primary) / 0.5), 0 5px 20px -5px hsl(var(--bull-gold) / 0.3);
-    --shadow-steel: 0 12px 35px -12px hsl(var(--bull-bronze) / 0.5);
-    --shadow-premium: 0 20px 60px -20px hsl(var(--bull-gold) / 0.4), 0 8px 30px -8px hsl(var(--primary) / 0.3);
+    /* Bull Shadows */
+    --shadow-glow: 0 0 30px hsl(var(--bull-red) / 0.4);
+    --shadow-power: 0 10px 40px hsl(var(--bull-red) / 0.3);
+    --shadow-steel: 0 5px 20px hsl(var(--bull-silver) / 0.2);
 
-    /* Enhanced Animations */
-    --transition-power: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    --transition-elastic: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Animations */
+    --transition-power: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-smooth: all 0.3s ease;
 
     --radius: 0.5rem;
 
