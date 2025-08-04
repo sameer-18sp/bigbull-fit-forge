@@ -79,25 +79,47 @@ const FeeStructure = () => {
           {packages.map((pkg, index) => (
             <div 
               key={index} 
-              className="group relative bg-bull-dark border-2 border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer h-80 flex flex-col items-center justify-center"
+              className="group relative bg-gradient-to-br from-bull-dark to-bull-gray/50 border-2 border-bull-gold/30 hover:border-bull-gold transition-all duration-700 cursor-pointer h-80 flex flex-col items-center justify-center rounded-xl overflow-hidden hover:scale-105 hover:-translate-y-2 hover:shadow-premium"
             >
-              {/* Icon */}
-              <div className="mb-8">
-                <pkg.icon className="h-20 w-20 text-white" strokeWidth={1.5} />
+              {/* Enhanced Background Effects */}
+              <div className="absolute inset-0 bg-gradient-premium opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-bull opacity-0 group-hover:opacity-5 transition-opacity duration-700 transform group-hover:scale-110"></div>
+              
+              {/* Shimmer Effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-bull-gold/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 skew-x-12"></div>
+              </div>
+
+              {/* Icon with enhanced animation */}
+              <div className="mb-8 relative z-10 group-hover:scale-110 transition-transform duration-500">
+                <pkg.icon className="h-20 w-20 text-white group-hover:text-bull-gold transition-colors duration-500" strokeWidth={1.5} />
               </div>
               
-              {/* Hover Content */}
-              <div className="absolute inset-0 bg-bull-dark/95 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <div className="text-center">
-                  <p className="text-white text-xl mb-2">{pkg.duration}</p>
-                  <p className="text-bull-red text-4xl font-bold mb-4">{pkg.price}/-</p>
+              {/* Title always visible */}
+              <div className="relative z-10 text-center">
+                <h3 className="text-white text-xl font-bold group-hover:text-bull-gold transition-colors duration-500">{pkg.title}</h3>
+              </div>
+              
+              {/* Enhanced Hover Content */}
+              <div className="absolute inset-0 bg-gradient-to-br from-bull-dark/95 to-bull-bronze/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-8 group-hover:translate-y-0">
+                <div className="text-center relative z-10">
+                  <h3 className="text-bull-gold text-2xl font-bold mb-2">{pkg.title}</h3>
+                  <p className="text-white text-lg mb-3">{pkg.duration}</p>
+                  <div className="relative overflow-hidden mb-4">
+                    <p className="text-bull-gold text-4xl font-black animate-pulse">{pkg.price}/-</p>
+                  </div>
                   <div className="space-y-2">
                     {pkg.features.map((feature, featureIndex) => (
-                      <p key={featureIndex} className="text-white/80 text-sm">
-                        {feature}
+                      <p key={featureIndex} className="text-white/90 text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" style={{transitionDelay: `${featureIndex * 100}ms`}}>
+                        ✓ {feature}
                       </p>
                     ))}
                   </div>
+                  {pkg.popular && (
+                    <div className="mt-4 bg-gradient-bull text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                      MOST POPULAR
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
