@@ -49,7 +49,7 @@ const BookingModal = ({ isOpen, onClose, serviceType = "General", trainerName }:
     return prices[service] || 1500;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.phone) {
@@ -74,14 +74,29 @@ const BookingModal = ({ isOpen, onClose, serviceType = "General", trainerName }:
       bookingId: generateBookingId()
     };
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Send notification to BigBull owners
+      const response = await fetch('/functions/v1/send-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'booking',
+          data: receiptData
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send notification');
+      }
+
       setBookingData(receiptData);
       setIsReceiptModalOpen(true);
       
       toast({
         title: "Bull Booking Confirmed! 🔥",
-        description: `Your ${formData.service} session is booked. Receipt generated!`,
+        description: `Your ${formData.service} session is booked. BigBull owners have been notified!`,
       });
       
       // Reset form
@@ -97,7 +112,14 @@ const BookingModal = ({ isOpen, onClose, serviceType = "General", trainerName }:
       });
       
       onClose();
-    }, 1000);
+    } catch (error) {
+      console.error('Booking error:', error);
+      toast({
+        title: "Booking Error",
+        description: "There was an issue processing your booking. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (

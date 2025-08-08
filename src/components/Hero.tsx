@@ -110,20 +110,20 @@ const Hero = () => {
                 </div>
                 
                 <div className="mb-8">
-                  <div className={`text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-[0.9] tracking-tight ${
-                    animatedText.first ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  } transition-all duration-1000 transform`}>
-                    <div className="text-white drop-shadow-2xl font-sans">
-                      {slide.titleParts[0]}
-                    </div>
+                <div className={`text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-[0.9] tracking-tight ${
+                  animatedText.first ? 'opacity-100 translate-y-0 animate-bull-charge' : 'opacity-0 translate-y-8'
+                } transition-all duration-1000 transform`}>
+                  <div className="text-white drop-shadow-2xl font-sans text-glow animate-fire-glow">
+                    {slide.titleParts[0]}
                   </div>
-                  <div className={`text-3xl md:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight ${
-                    animatedText.second ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  } transition-all duration-1000 transform delay-300`}>
-                    <div className="text-bull-red drop-shadow-2xl font-sans">
-                      {slide.titleParts[1]}
-                    </div>
+                </div>
+                <div className={`text-3xl md:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight ${
+                  animatedText.second ? 'opacity-100 translate-y-0 animate-bull-charge' : 'opacity-0 translate-y-8'
+                } transition-all duration-1000 transform delay-300`}>
+                  <div className="text-fire drop-shadow-2xl font-sans animate-fire-glow">
+                    {slide.titleParts[1]}
                   </div>
+                </div>
                 </div>
 
                 <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-medium max-w-2xl">

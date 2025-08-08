@@ -13,6 +13,7 @@ interface VideoModalProps {
 const VideoModal = ({ isOpen, onClose, title, videoIndex = 0 }: VideoModalProps) => {
   const videos = [Video1, Video2, Video1]; // Different videos for each slide
   const currentVideo = videos[videoIndex] || Video1;
+  
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl bg-bull-dark border-bull-gold/20">
@@ -31,10 +32,21 @@ const VideoModal = ({ isOpen, onClose, title, videoIndex = 0 }: VideoModalProps)
         <div className="p-6">
           <div className="relative w-full">
             <video 
+              key={currentVideo} // Add key to force re-render when video changes
               className="w-full h-auto rounded-lg" 
               controls 
               autoPlay
               src={currentVideo}
+              preload="auto"
+              onLoadStart={() => {
+                // Pause any other videos that might be playing
+                const allVideos = document.querySelectorAll('video');
+                allVideos.forEach(video => {
+                  if (video.src !== currentVideo) {
+                    video.pause();
+                  }
+                });
+              }}
             >
               Your browser does not support the video tag.
             </video>

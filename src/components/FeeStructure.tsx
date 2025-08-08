@@ -20,7 +20,7 @@ const FeeStructure = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleAppointment = () => {
+  const handleAppointment = async () => {
     if (!formData.name || !formData.mobile || !formData.email || !formData.months) {
       toast({
         title: "Missing Information",
@@ -30,12 +30,43 @@ const FeeStructure = () => {
       return;
     }
 
-    toast({
-      title: "Appointment Booked!",
-      description: "We'll contact you soon to confirm your appointment details.",
-    });
-    
-    setFormData({ name: "", mobile: "", email: "", months: "" });
+    try {
+      // Send notification to BigBull owners
+      const response = await fetch('/functions/v1/send-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'contact',
+          data: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.mobile,
+            service: `${formData.months} months membership`,
+            message: `Appointment request for ${formData.months} months membership plan`
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send notification');
+      }
+
+      toast({
+        title: "Appointment Booked! 🔥",
+        description: "BigBull owners have been notified. We'll contact you soon!",
+      });
+      
+      setFormData({ name: "", mobile: "", email: "", months: "" });
+    } catch (error) {
+      console.error('Appointment booking error:', error);
+      toast({
+        title: "Booking Error",
+        description: "There was an issue booking your appointment. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const packages = [
@@ -79,7 +110,7 @@ const FeeStructure = () => {
           {packages.map((pkg, index) => (
             <div 
               key={index} 
-              className="group relative bg-bull-dark border-2 border-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer h-80 flex flex-col items-center justify-center"
+              className="group relative bg-bull-dark border-2 border-white/20 hover:border-white/40 transition-all duration-500 cursor-pointer h-80 flex flex-col items-center justify-center bull-card-hover hover-lift"
             >
               {/* Icon */}
               <div className="mb-8">

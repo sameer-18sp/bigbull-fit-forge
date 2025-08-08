@@ -23,14 +23,37 @@ const ContactPage = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
+    try {
+      // Send notification to BigBull owners
+      const response = await fetch('/functions/v1/send-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'contact',
+          data: {
+            name: `${formData.firstName} ${formData.lastName}`,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.service,
+            message: formData.message
+          }
+        })
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to send notification');
+      }
+
+      toast({
+        title: "Message Sent! 🔥",
+        description: "Thank you for contacting BigBull Fitness. We'll get back to you soon!",
+      });
+      
       setFormData({
         firstName: "",
         lastName: "",
@@ -39,7 +62,14 @@ const ContactPage = () => {
         service: "",
         message: ""
       });
-    }, 1000);
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: "Message Error",
+        description: "There was an issue sending your message. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleBooking = (service: string) => {
