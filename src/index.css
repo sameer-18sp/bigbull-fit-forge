@@ -24,6 +24,9 @@ Navy authority, Orange energy, Lime growth, Light gray balance, Peach warmth
     --primary-foreground: 0 0% 98%;
     --primary-light: 220 80% 35%;
 
+    /* Glow variant for accents and focus rings */
+    --primary-glow: 220 85% 30%;
+
     /* Secondary - Light Gray for Balance */
     --secondary: 220 10% 85%;
     --secondary-foreground: 220 100% 15%;
@@ -40,6 +43,13 @@ Navy authority, Orange energy, Lime growth, Light gray balance, Peach warmth
     --gym-gray: 220 10% 85%; /* Light Gray - Balance & Clarity */
     --gym-gray-dark: 220 15% 70%; /* Darker Gray */
     --gym-charcoal: 220 25% 25%; /* Charcoal for depth */
+
+    /* Bull alias colors for legacy classes */
+    --bull-red: 25 95% 53%;
+    --bull-gold: 25 90% 65%; /* Warm amber-gold accent */
+    --bull-gray: 220 10% 85%;
+    --bull-silver: 220 15% 70%;
+    --bull-dark: 220 25% 25%;
 
     /* Muted tones */
     --muted: 220 10% 92%;
@@ -200,6 +210,45 @@ Navy authority, Orange energy, Lime growth, Light gray balance, Peach warmth
   
   .gym-card-hover:hover {
     transform: translateY(-8px) rotateY(2deg);
+    box-shadow: var(--shadow-energy);
+  }
+  
+  /* Bull hover utilities for legacy classes */
+  .bull-card-hover {
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bull-card-hover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, hsl(var(--bull-red) / 0.12), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  .bull-card-hover:hover::before {
+    animation: energy-shimmer 1.5s ease-in-out;
+    opacity: 1;
+  }
+
+  .bull-card-hover:hover {
+    transform: translateY(-8px) rotateY(2deg);
+    box-shadow: var(--shadow-energy);
+  }
+
+  .hover-lift {
+    transition: var(--transition-bounce);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px) scale(1.02);
     box-shadow: var(--shadow-energy);
   }
   

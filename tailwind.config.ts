@@ -46,6 +46,13 @@ export default {
 					'gray-dark': 'hsl(var(--gym-gray-dark))',
 					charcoal: 'hsl(var(--gym-charcoal))'
 				},
+				bull: {
+					red: 'hsl(var(--bull-red))',
+					gold: 'hsl(var(--bull-gold))',
+					gray: 'hsl(var(--bull-gray))',
+					silver: 'hsl(var(--bull-silver))',
+					dark: 'hsl(var(--bull-dark))'
+				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
